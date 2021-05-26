@@ -16,6 +16,7 @@ for i in range(0, len(ticketlist) -1):
 		unique_tickets.add(ticketlist[i]["description"])
 		output_tickets.append(ticketlist[i])
 
-open("updated-file.json", "w").write(
-    json.dumps(output_tickets, sort_keys=True, indent=4, separators=(',', ': '))
-)
+with open("ug_cleaned_updated.json", "w") as f:
+    for ticket in output_tickets:
+        json.dump(ticket, f)
+        f.write("\n")
